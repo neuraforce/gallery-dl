@@ -27,6 +27,13 @@ class FlickrExtractor(Extractor):
         self.api = FlickrAPI(self)
         self.user = None
         self.item_id = self.groups[0]
+        if self.config("numeric-id", False):
+            def repl(segment):
+                return segment.replace("{user[username]}", "{user[nsid]}")
+            if isinstance(self.directory_fmt, tuple):
+                self.directory_fmt = tuple(repl(s) for s in self.directory_fmt)
+            else:
+                self.directory_fmt = repl(self.directory_fmt)
 
     def items(self):
         data = self.metadata()

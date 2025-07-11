@@ -70,6 +70,7 @@
                                 the current directory to debug problems
     --print-traffic             Display sent and read HTTP traffic
     --no-colors                 Do not emit ANSI color codes in output
+    --numeric-id                Use numeric Flickr user IDs as directory names
 
 ## Networking Options:
     -R, --retries N             Maximum number of retries for failed HTTP
