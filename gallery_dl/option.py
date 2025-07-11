@@ -153,6 +153,12 @@ class UgoiraAction(argparse.Action):
         namespace.postprocessors.append(pp)
 
 
+class FlickrNumericIdAction(argparse.Action):
+    """Enable numeric Flickr user IDs"""
+    def __call__(self, parser, namespace, values, option_string=None):
+        namespace.options.append((("extractor", "flickr"), "numeric-id", True))
+
+
 class PrintAction(argparse.Action):
     def __call__(self, parser, namespace, value, option_string=None):
         if self.const:
@@ -468,6 +474,11 @@ def build_parser():
         "--no-colors",
         dest="colors", action="store_false",
         help="Do not emit ANSI color codes in output",
+    )
+    output.add_argument(
+        "--numeric-id",
+        action=FlickrNumericIdAction, nargs=0,
+        help="Use numeric Flickr user IDs as directory names",
     )
 
     networking = parser.add_argument_group("Networking Options")

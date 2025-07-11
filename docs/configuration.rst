@@ -2781,6 +2781,17 @@ Description
     See `flickr.people.getInfo <https://www.flickr.com/services/api/flickr.people.getInfo.html>`__ for details.
 
 
+extractor.flickr.numeric-id
+---------------------------
+Type
+    ``bool``
+Default
+    ``false``
+Description
+    Use the numeric identifier (NSID) of a Flickr user as the
+    output directory name instead of the username.
+
+
 extractor.flickr.videos
 -----------------------
 Type
